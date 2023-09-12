@@ -11,29 +11,29 @@
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
-  width: 100%;
+  max-width: 200px;
   text-align: center;
   background-color: #f9f9f9;
 }
 
 /* Style for movie posters */
-.movie-poster {
-  width: 100%;
+.movie-card img {
+  max-width: 100%;
 }
 
 /* Style for movie titles */
-.movie-title {
+.movie-card h2 {
   font-size: 1.2em;
   margin: 10px 0;
 }
 
 /* Style for movie release dates */
-.movie-release-date {
+.movie-card p {
   font-size: 0.9em;
   color: #555;
 }
 
-/* Style for the movie details page */
-.movie-details {
-  text-align: center;
+/* Style for search page */
+.search-page input {
+  margin-right: 10px;
 }
