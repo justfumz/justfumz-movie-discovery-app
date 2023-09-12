@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -16,14 +17,18 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="movie-card" data-testid="movie-card">
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        alt={movie.title}
-        data-testid="movie-poster"
-      />
-      <h2 data-testid="movie-title">{movie.title}</h2>
-      <p data-testid="movie-release-date">Release Date: {movie.release_date}</p>
-      <button onClick={handleToggleFavorite}>
+      <Link to={`/movies/${movie.id}`}>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          alt={movie.title}
+          data-testid="movie-poster"
+        />
+        <h2 data-testid="movie-title">{movie.title}</h2>
+        <p data-testid="movie-release-date">
+          Release Date: {movie.release_date}
+        </p>
+      </Link>
+      <button onClick={handleToggleFavorite} >
         {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
       </button>
     </div>

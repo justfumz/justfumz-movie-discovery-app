@@ -1,9 +1,36 @@
 /* Style for the homepage */
+*{
+  font-family: monospace;
+}
+
 .homepage {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px;
+}
+
+/* Style for search container */
+.search-container {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+/* Style for search input */
+.search-container input {
+  padding: 8px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Style for search button */
+.search-container button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 /* Style for movie cards */
@@ -33,7 +60,17 @@
   color: #555;
 }
 
+.movie-card button {
+  padding: 5px;
+  font-size: 10px;
+  
+}
+
 /* Style for search page */
 .search-page input {
   margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
 }

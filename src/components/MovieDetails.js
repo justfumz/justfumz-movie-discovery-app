@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [movieDetails, setMovieDetails] = useState(null);
   const [error, setError] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const apiKey = '7b68e3e1afd446f44546bdac647941ac';
@@ -17,7 +17,7 @@ const MovieDetails = () => {
         }
         return response.json();
       })
-      .then(data => setMovie(data))
+      .then(data => setMovieDetails(data))
       .catch(error => setError(error.message));
   }, [id]);
 
@@ -25,16 +25,18 @@ const MovieDetails = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!movie) {
+  if (!movieDetails) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="movie-details">
-      <h2 data-testid="movie-title">{movie.title}</h2>
-      <p data-testid="movie-release-date">Release Date: {movie.release_date}</p>
-      <p data-testid="movie-runtime">Runtime: {movie.runtime} minutes</p>
-      <p data-testid="movie-overview">Overview: {movie.overview}</p>
+      <h2 data-testid="movie-title">{movieDetails.title}</h2>
+      <p data-testid="movie-release-date">
+        Release Date (UTC): {movieDetails.release_date}
+      </p>
+      <p data-testid="movie-runtime">Runtime: {movieDetails.runtime} minutes</p>
+      <p data-testid="movie-overview">{movieDetails.overview}</p>
     </div>
   );
 };
