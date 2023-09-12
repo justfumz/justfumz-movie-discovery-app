@@ -1,0 +1,39 @@
+/* Style for the homepage */
+.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Style for movie cards */
+.movie-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Style for movie posters */
+.movie-poster {
+  width: 100%;
+}
+
+/* Style for movie titles */
+.movie-title {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* Style for movie release dates */
+.movie-release-date {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Style for the movie details page */
+.movie-details {
+  text-align: center;
+}
