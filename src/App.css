@@ -1,5 +1,5 @@
 /* Style for the homepage */
-*{
+* {
   font-family: monospace;
 }
 
@@ -63,7 +63,6 @@
 .movie-card button {
   padding: 5px;
   font-size: 10px;
-  
 }
 
 /* Style for search page */
