@@ -127,9 +127,17 @@ const HomePage = () => {
           </h3>
         </div>
 
-        {topMovies.map(movie => (
+        <div className="movies-grid">
+          {topMovies && topMovies.length > 0 ? (
+            topMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+          ) : (
+            <p>No movies available</p>
+          )}
+        </div>
+
+        {/* {topMovies.map(movie => (
           <MovieCard key={movie.id} movie={movie} />
-        ))}
+        ))} */}
       </div>
       <Footer />
     </div>

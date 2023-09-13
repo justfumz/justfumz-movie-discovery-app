@@ -216,6 +216,15 @@ a {
   font-size: 14px;
 }
 
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* Adjust as needed for the number of columns */
+  gap: 20px; /* Adjust the gap between items */
+}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .movie-info {
@@ -231,5 +240,28 @@ a {
   .movie-info p {
     font-size: 13px;
     margin-bottom: 5px;
+  }
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+
+  /* Adjust grid for smaller screens */
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
 }
