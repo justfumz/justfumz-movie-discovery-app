@@ -55,7 +55,7 @@
 }
 
 .logo {
-  width: 70px;
+  width: 200px;
   margin-right: 10px;
 }
 
@@ -104,18 +104,19 @@ button {
 /* Featured text */
 .featured {
   display: flex;
-  height: 20px;
+  height: 10px;
   width: 100%;
   flex-flow: column wrap;
   flex-wrap: wrap;
   align-content: space-between;
   margin: 20px 50px;
+  padding: 20px;
 }
 
 /* Movie Info Styles */
 .movie-info {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -126,6 +127,7 @@ button {
 .movie-info h1 {
   font-size: 36px;
   margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .movie-info p {
@@ -149,6 +151,7 @@ button {
   max-width: 200px;
   text-align: center;
   background-color: #f9f9f9;
+  color: cadetblue;
 }
 
 /* Style for movie posters */
@@ -160,17 +163,21 @@ button {
 .movie-card h2 {
   font-size: 1.2em;
   margin: 10px 0;
+  color: cadetblue;
 }
 
 /* Style for movie release dates */
 .movie-card p {
   font-size: 0.9em;
-  color: #555;
+  color: #555555c8;
 }
 
 .movie-card button {
   padding: 5px;
-  font-size: 10px;
+  margin-top: 10px;
+  font-size: 8px;
+  border-radius: 4px;
+  background-color: #555;
 }
 
 /* Style for search page */
@@ -180,4 +187,32 @@ button {
 
 a {
   text-decoration: none;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.copyright {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .movie-info h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  .movie-info p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 }

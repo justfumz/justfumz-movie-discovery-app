@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import { Link } from 'react-router-dom';
-import logo from '../img/Logo.png';
+import Footer from './Footer';
+import Logo from './Logo.png';
 
 const HomePage = () => {
   const [topMovies, setTopMovies] = useState([]);
@@ -58,8 +59,9 @@ const HomePage = () => {
               className="background-image"
             />
             <div className="overlay"></div>
+
             <div className="header-left">
-              <img src="https://placehold.co/200" alt="Logo" className="logo" />
+              <img src={Logo} alt="Logo" className="logo" />
             </div>
 
             <div className="search-container">
@@ -74,9 +76,6 @@ const HomePage = () => {
             </div>
 
             <div className="header-right">
-              <Link to="/" className="home">
-                Home
-              </Link>
               <Link to="#">Sign-in</Link>
             </div>
             <div className="movie-info">
@@ -87,17 +86,19 @@ const HomePage = () => {
           </div>
         )}
       </header>
+      <div className="homepage">
+        <div className="featured">
+          <h2>Featured Movies</h2>
+          <h3>
+            <Link to="#">See More</Link>
+          </h3>
+        </div>
 
-      <div className="featured">
-        <h2>Featured Movies</h2>
-        <h3>
-          <Link to="#">See More</Link>
-        </h3>
+        {topMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
-
-      {topMovies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      <Footer />
     </div>
   );
 };

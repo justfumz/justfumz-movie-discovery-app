@@ -28,7 +28,7 @@ const MovieCard = ({ movie }) => {
           Release Date: {movie.release_date}
         </p>
       </Link>
-      <button onClick={handleToggleFavorite} >
+      <button onClick={handleToggleFavorite}>
         {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
       </button>
     </div>
