@@ -6,6 +6,7 @@ import Logo from './Logo.png';
 
 const HomePage = () => {
   const [topMovies, setTopMovies] = useState([]);
+  const [johnWickMovie, setJohnWickMovie] = useState(null);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -42,6 +43,21 @@ const HomePage = () => {
       })
       .then(data => setTopMovies(data.results.slice(0, 10))) // Limit to top 10 movies
       .catch(error => setError(error.message));
+
+    const johnWickMovieId = 458156; // ID for John Wick: Chapter 3 - Parabellum
+    const movieUrl = `https://api.themoviedb.org/3/movie/${johnWickMovieId}?api_key=${apiKey}`;
+
+    fetch(movieUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setJohnWickMovie(data);
+      })
+      .catch(error => setError(error.message));
   }, []);
 
   if (error) {
@@ -51,11 +67,11 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <header className="header">
-        {topMovies.length > 0 && (
+        {johnWickMovie && (
           <div className="header-background">
             <img
-              src={`https://image.tmdb.org/t/p/original${topMovies[0].backdrop_path}`}
-              alt={topMovies[0].title}
+              src={`https://image.tmdb.org/t/p/original${johnWickMovie.backdrop_path}`}
+              alt={johnWickMovie.title}
               className="background-image"
             />
             <div className="overlay"></div>
@@ -76,11 +92,11 @@ const HomePage = () => {
             </div>
 
             <div className="header-right">
-              <Link to="#">Sign-in</Link>
+              <h4>Sign-in</h4>
             </div>
             <div className="movie-info">
-              <h1>{topMovies[0].title}</h1>
-              <p>{topMovies[0].overview}</p>
+              <h1> {johnWickMovie.title}</h1>
+              <p>{johnWickMovie.overview}</p>
               <p>Rating: {topMovies[0].vote_average}</p>
             </div>
           </div>
