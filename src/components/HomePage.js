@@ -80,11 +80,13 @@ const HomePage = () => {
       <header className="header">
         {johnWickMovie && (
           <div className="header-background">
-            <img
-              src={`https://image.tmdb.org/t/p/original${johnWickMovie.backdrop_path}`}
-              alt={johnWickMovie.title}
-              className="background-image"
-            />
+            <Link to="/">
+              <img
+                src={`https://image.tmdb.org/t/p/original${johnWickMovie.backdrop_path}`}
+                alt={johnWickMovie.title}
+                className="background-image"
+              />{' '}
+            </Link>
             <div className="overlay"></div>
 
             <div className="header-left">
@@ -116,6 +118,7 @@ const HomePage = () => {
           </div>
         )}
       </header>
+
       <div className="homepage">
         <div className="featured">
           <h2>Featured Movies</h2>
