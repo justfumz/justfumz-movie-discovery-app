@@ -30,6 +30,17 @@ const HomePage = () => {
     }
   };
 
+  const handleWatchTrailer = () => {
+    if (johnWickMovie && johnWickMovie.trailerUrl) {
+      // Assuming johnWickMovie.trailerUrl contains the URL to the trailer
+      window.open(johnWickMovie.trailerUrl, '_blank'); // Opens in a new window/tab
+      // Alternatively, you can use a modal library to display the trailer in a modal
+    } else {
+      // If trailer URL is not available, you can show a message to indicate no trailer found
+      alert('No trailer available for John Wick movie.');
+    }
+  };
+
   useEffect(() => {
     const apiKey = '7b68e3e1afd446f44546bdac647941ac';
     const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`;
@@ -98,6 +109,9 @@ const HomePage = () => {
               <h1> {johnWickMovie.title}</h1>
               <p>{johnWickMovie.overview}</p>
               <p>Rating: {topMovies[0].vote_average}</p>
+              <button className="button-watch" onClick={handleWatchTrailer}>
+                Watch Trailer
+              </button>
             </div>
           </div>
         )}
