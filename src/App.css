@@ -105,11 +105,22 @@ button {
   display: flex;
   height: 10px;
   width: 100%;
-  flex-flow: column wrap;
-  flex-wrap: wrap;
-  align-content: space-between;
-  margin: 20px 50px;
+  margin: 5vh 15vh;
   padding: 20px;
+  align-content: space-between;
+}
+.featured h2 {
+  width: 50%;
+  text-align: left;
+}
+.featured > h3 {
+  width: 50%;
+  color: red;
+  text-align: right;
+}
+.featured > h3:hover {
+  color: #333;
+  cursor: pointer;
 }
 
 /* Movie Info Styles */
@@ -218,50 +229,45 @@ a {
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(
-    5,
-    1fr
-  ); /* Adjust as needed for the number of columns */
-  gap: 20px; /* Adjust the gap between items */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 992px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .movie-info {
     left: 40%;
-    width: 40%;
+    width: 60%;
   }
   .movie-info h1 {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 10px;
     letter-spacing: 1px;
   }
 
   .movie-info p {
-    font-size: 13px;
+    font-size: 11px;
     margin-bottom: 5px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-
-  /* Adjust grid for smaller screens */
-  @media screen and (max-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  @media screen and (max-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 480px) {
+  .movies-grid {
+    grid-template-columns: repeat(1fr);
   }
 }

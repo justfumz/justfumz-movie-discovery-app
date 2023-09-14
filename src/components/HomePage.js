@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
-import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import Logo from './Logo.png';
 
@@ -122,9 +121,7 @@ const HomePage = () => {
 
       <div className="featured">
         <h2>Featured Movies</h2>
-        <h3>
-          <Link to="#">See More</Link>
-        </h3>
+        <h3>See More</h3>
       </div>
 
       <div className="movies-grid">
