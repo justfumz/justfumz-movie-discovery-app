@@ -271,6 +271,29 @@ a {
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
+  .header-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .search-container {
+    position: absolute;
+    top: 20px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    margin-top: 10px;
+  }
+
+  .logo {
+    width: 100px;
+    margin-right: 10px;
+  }
+
+  .header-right > h4 {
+    display: none;
+  }
+
   .movie-info {
     left: 40%;
     width: 60%;
@@ -288,6 +311,19 @@ a {
 
   .movies-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Featured text */
+  .featured {
+    margin: 5vh 5vh;
+    padding: 20px;
+  }
+
+  .featured h2 {
+    width: 90%;
+  }
+  .featured > h3 {
+    display: none;
   }
 }
 
