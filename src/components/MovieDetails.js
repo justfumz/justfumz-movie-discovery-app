@@ -53,10 +53,6 @@ const MovieDetails = () => {
               </a>
             </p>
           </div>
-
-          <div className="header-right">
-            <h4>Sign-in</h4>
-          </div>
         </div>
       </header>
 
