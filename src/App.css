@@ -110,6 +110,7 @@ button {
   align-content: space-between;
 }
 .featured h2 {
+  margin-right: 10px;
   width: 50%;
   text-align: left;
 }
