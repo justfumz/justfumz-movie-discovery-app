@@ -24,6 +24,7 @@ const HomePage = () => {
       }
     }
   };
+
   const handleKeyPress = event => {
     if (event.key === 'Enter') {
       handleSearch();
@@ -32,11 +33,8 @@ const HomePage = () => {
 
   const handleWatchTrailer = () => {
     if (johnWickMovie && johnWickMovie.trailerUrl) {
-      // Assuming johnWickMovie.trailerUrl contains the URL to the trailer
-      window.open(johnWickMovie.trailerUrl, '_blank'); // Opens in a new window/tab
-      // Alternatively, you can use a modal library to display the trailer in a modal
+      window.open(johnWickMovie.trailerUrl, '_blank');
     } else {
-      // If trailer URL is not available, you can show a message to indicate no trailer found
       alert('No trailer available for John Wick movie.');
     }
   };
@@ -52,10 +50,10 @@ const HomePage = () => {
         }
         return response.json();
       })
-      .then(data => setTopMovies(data.results.slice(0, 10))) // Limit to top 10 movies
+      .then(data => setTopMovies(data.results.slice(0, 10)))
       .catch(error => setError(error.message));
 
-    const johnWickMovieId = 458156; // ID for John Wick: Chapter 3 - Parabellum
+    const johnWickMovieId = 458156;
     const movieUrl = `https://api.themoviedb.org/3/movie/${johnWickMovieId}?api_key=${apiKey}`;
 
     fetch(movieUrl)
@@ -80,17 +78,20 @@ const HomePage = () => {
       <header className="header">
         {johnWickMovie && (
           <div className="header-background">
-            <Link to="/">
-              <img
-                src={`https://image.tmdb.org/t/p/original${johnWickMovie.backdrop_path}`}
-                alt={johnWickMovie.title}
-                className="background-image"
-              />{' '}
-            </Link>
+            <img
+              src={`https://image.tmdb.org/t/p/original${johnWickMovie.backdrop_path}`}
+              alt={johnWickMovie.title}
+              className="background-image"
+            />
+
             <div className="overlay"></div>
 
             <div className="header-left">
-              <img src={Logo} alt="Logo" className="logo" />
+              <p>
+                <a href="/">
+                  <img src={Logo} alt="Logo" className="logo" />
+                </a>
+              </p>
             </div>
 
             <div className="search-container">
@@ -101,16 +102,16 @@ const HomePage = () => {
                 onKeyPress={handleKeyPress}
                 placeholder="Search for movies"
               />
-              <button onClick={handleSearch}>Search</button>
             </div>
 
             <div className="header-right">
               <h4>Sign-in</h4>
             </div>
+
             <div className="movie-info">
-              <h1> {johnWickMovie.title}</h1>
+              <h1>{johnWickMovie.title}</h1>
               <p>{johnWickMovie.overview}</p>
-              <p>Rating: {topMovies[0].vote_average}</p>
+              <p>Rating: {johnWickMovie.vote_average}</p>
               <button className="button-watch" onClick={handleWatchTrailer}>
                 Watch Trailer
               </button>
@@ -119,26 +120,21 @@ const HomePage = () => {
         )}
       </header>
 
-      <div className="homepage">
-        <div className="featured">
-          <h2>Featured Movies</h2>
-          <h3>
-            <Link to="#">See More</Link>
-          </h3>
-        </div>
-
-        <div className="movies-grid">
-          {topMovies && topMovies.length > 0 ? (
-            topMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
-          ) : (
-            <p>No movies available</p>
-          )}
-        </div>
-
-        {/* {topMovies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))} */}
+      <div className="featured">
+        <h2>Featured Movies</h2>
+        <h3>
+          <Link to="#">See More</Link>
+        </h3>
       </div>
+
+      <div className="movies-grid">
+        {topMovies && topMovies.length > 0 ? (
+          topMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+        ) : (
+          <p>No movies available</p>
+        )}
+      </div>
+
       <Footer />
     </div>
   );
