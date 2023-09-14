@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Footer from './Footer';
+import Logo from './Logo.png';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -29,14 +31,47 @@ const MovieDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`;
+
   return (
-    <div className="movie-details">
-      <h2 data-testid="movie-title">{movieDetails.title}</h2>
-      <p data-testid="movie-release-date">
-        Release Date (UTC): {movieDetails.release_date}
-      </p>
-      <p data-testid="movie-runtime">Runtime: {movieDetails.runtime} minutes</p>
-      <p data-testid="movie-overview">{movieDetails.overview}</p>
+    <div>
+      <header className="header">
+        <div className="header-background">
+          <Link to="/">
+            <img
+              src={backdropUrl}
+              alt={movieDetails.title}
+              className="background-image"
+            />
+          </Link>
+          <div className="overlay"></div>
+
+          <div className="header-left">
+            <p>
+              <a href="/">
+                <img src={Logo} alt="Logo" className="logo" />
+              </a>
+            </p>
+          </div>
+
+          <div className="header-right">
+            <h4>Sign-in</h4>
+          </div>
+        </div>
+      </header>
+
+      <div className="movie-details">
+        <h2 data-testid="movie-title">{movieDetails.title}</h2>
+        <p data-testid="movie-release-date">
+          Release Date (UTC): {movieDetails.release_date}
+        </p>
+        <p data-testid="movie-runtime">
+          Runtime: {movieDetails.runtime} minutes
+        </p>
+        <p data-testid="movie-overview">{movieDetails.overview}</p>
+        {/* Add more movie details such as director, cast, etc. here */}
+      </div>
+      <Footer />
     </div>
   );
 };
