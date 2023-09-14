@@ -67,7 +67,6 @@ const MovieDetails = () => {
         <p data-testid="movie-overview">{movieDetails.overview}</p>
         {/* Add more movie details such as director, cast, etc. here */}
       </div>
-      <Footer />
     </div>
   );
 };
