@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Footer from './Footer';
 import Logo from './Logo.png';
 
 const MovieDetails = () => {
